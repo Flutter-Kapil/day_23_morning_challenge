@@ -17,4 +17,15 @@ void main() {
           [false, true, false, false]
         ]);
   });
+
+  test("test case 1", () {
+    expect(
+        nearbyTrue(0, 1, [
+          [false, true, false, true],
+          [false, false, true, false],
+          [false, true, false, false],
+          [true, false, true, false]
+        ]),
+        1);
+  });
 }
