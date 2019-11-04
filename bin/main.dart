@@ -8,21 +8,9 @@
 // Write a function which performs one step of the life algorithm
 List<List<bool>> gameOfLife(List<List<bool>> board) {
   //to create new board with all values as false
-  //lets copy the board first
-  List<List<bool>> newBoard = [
-    [false, false, false, false],
-    [false, false, false, false],
-    [false, false, false, false],
-    [false, false, false, false]
-  ];
-  //now change all values to false, dead
-//  for (int i = 0; i < board.length; i++) {
-//    for (int j = 0; j < board[i].length; j++) {
-//      newBoard[i][j] = false;
-//    }
-//  }
+  List<List<bool>> newBoard = List<List<bool>>.generate(
+      board.length, (i) => List.generate(board[i].length, (j) => false));
 
-  //now lets go through board and update values in new board
   //by following rules from Conway's Game of Life
 //  /  Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 //  /  Any live cell with two or three live neighbours lives on to the next generation.
@@ -72,7 +60,7 @@ int nearbyTrue(int i, int j, List<List> board) {
 
 main() {
   print(nearbyTrue(0, 2, [
-    [false, true, false, true],
+    [false, true, false],
     [false, false, true, false],
     [false, true, false, false],
     [true, false, true, false]
